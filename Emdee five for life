@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+# Author: willgo666
+
+import requests, hashlib, re
+
+URI = "http://docker.hackthebox.eu:{}".format(sys.argv[1])
+
+r = requests.session()
+data = r.get(URI).text
+txt = re.findall(r"(?:<h3 align='center'>)(.+)(?:</h3)", data)[0]
+md5 = hashlib.md5(txt.encode('utf-8')).hexdigest()
+
+data = r.post(URI, data={"hash": md5}).text
+flag = re.findall(r"HTB\{.+\}", data)[0]
+print(flag)
