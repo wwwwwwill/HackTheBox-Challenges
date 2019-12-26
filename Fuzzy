@@ -1,0 +1,5 @@
+brust force to get /api/action.php
+
+wfuzz --hh=24 -c -w /usr/share/dirb/wordlists/big.txt http://docker.hackthebox.eu:32684/api/action.php?FUZZ=test
+
+wfuzz --hh=27 -c -w /usr/share/dirb/wordlists/big.txt http://docker.hackthebox.eu:32684/api/action.php?reset=FUZZ
